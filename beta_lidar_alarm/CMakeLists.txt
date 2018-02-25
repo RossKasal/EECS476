@@ -32,7 +32,7 @@ catkin_simple()
 # Executables: uncomment the following and edit arguments to compile new nodes
 # may add more of these lines for more nodes from the same package
 # cs_add_executable(example src/example.cpp)
-cs_add_executable(lidar_alarm src/lidar_alarm.cpp)
+cs_add_executable(beta_lidar_alarm src/lidar_alarm.cpp)
 
 #the following is required, if desire to link a node in this package with a library created in this same package
 # edit the arguments to reference the named node and named library within this package
