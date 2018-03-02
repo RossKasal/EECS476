@@ -12,6 +12,11 @@ const double MIN_SAFE_DISTANCE = 1.0; // set alarm if anything is within 0.5m of
 float ping_dist_in_front_=3.0; // global var to hold length of a SINGLE LIDAR ping--in front
 float ping_dist_in_side1_=3.0;
 float ping_dist_in_side2_=3.0;
+float ping_dist_in_side3_=3.0;
+float ping_dist_in_side4_=3.0;
+float ping_dist_in_side5_=3.0;
+float ping_dist_in_side6_=3.0;
+
 int ping_index_= -1; // NOT real; callback will have to find this
 double angle_min_=0.0;
 double angle_max_=0.0;
@@ -48,12 +53,20 @@ void laserCallback(const sensor_msgs::LaserScan& laser_scan) {
 	ping_dist_in_front_ = laser_scan.ranges[ping_index_];
 	ping_dist_in_side1_ = laser_scan.ranges[ping_index_-90];
 	ping_dist_in_side2_ = laser_scan.ranges[ping_index_+90];
+	ping_dist_in_side3_ = laser_scan.ranges[ping_index_-45];
+	ping_dist_in_side4_ = laser_scan.ranges[ping_index_+45];
+	ping_dist_in_side5_ = laser_scan.ranges[ping_index_-30];
+	ping_dist_in_side6_ = laser_scan.ranges[ping_index_+30];
 	
 	ROS_INFO("ping dist in front = %f",ping_dist_in_front_);
 	ROS_INFO("ping dist in side1 = %f",ping_dist_in_side1_);
 	ROS_INFO("ping dist in side2 = %f",ping_dist_in_side2_);
-	if (ping_dist_in_front_<MIN_SAFE_DISTANCE || ping_dist_in_side1_ < MIN_SAFE_DISTANCE || ping_dist_in_side2_ < MIN_SAFE_DISTANCE) {
-		ROS_WARN("DANGER, WILL ROBINSON!!");
+	ROS_INFO("ping dist in side3 = %f",ping_dist_in_side3_);
+	ROS_INFO("ping dist in side4 = %f",ping_dist_in_side4_);
+	ROS_INFO("ping dist in side5 = %f",ping_dist_in_side5_);
+	ROS_INFO("ping dist in side6 = %f",ping_dist_in_side6_);
+	if (ping_dist_in_front_<MIN_SAFE_DISTANCE || ping_dist_in_side1_ < MIN_SAFE_DISTANCE || ping_dist_in_side2_ < MIN_SAFE_DISTANCE || ping_dist_in_side3_ < MIN_SAFE_DISTANCE || ping_dist_in_side4_ < MIN_SAFE_DISTANCE || ping_dist_in_side5_ < MIN_SAFE_DISTANCE || ping_dist_in_side6_ < MIN_SAFE_DISTANCE) {
+		ROS_WARN("N O P E");
 		laser_alarm_=true;
 	}
 	else {
@@ -76,7 +89,7 @@ int main(int argc, char **argv) {
     lidar_alarm_publisher_ = pub; // let's make this global, so callback can use it
     ros::Publisher pub2 = nh.advertise<std_msgs::Float32>("lidar_dist", 1);  
     lidar_dist_publisher_ = pub2;
-    ros::Subscriber lidar_subscriber = nh.subscribe("robot0/laser_0", 1, laserCallback);
+    ros::Subscriber lidar_subscriber = nh.subscribe("scan", 1, laserCallback);
     ros::spin(); //this is essentially a "while(1)" statement, except it
     // forces refreshing wakeups upon new data arrival
     // main program essentially hangs here, but it must stay alive to keep the callback function alive
