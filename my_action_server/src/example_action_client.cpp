@@ -135,6 +135,9 @@ int main(int argc, char** argv) {
     goal.x_coordinate.push_back(x_movement);
     goal.y_coordinate.push_back(y_movement);
     goal.angle_value.push_back(orientation);
+    
+    action_client.sendGoal(goal, &doneCb);
+    
 
     while (true) {
         bool completed = action_client.waitForResult(ros::Duration(5.0));     
