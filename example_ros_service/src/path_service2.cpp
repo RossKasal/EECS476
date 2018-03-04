@@ -19,6 +19,9 @@ using namespace std;
 //some tunable constants, global
 const double g_move_speed = 1.0; // set forward speed to this value, e.g. 1m/s
 const double g_spin_speed = 1.0; // set yaw rate to this value, e.g. 1 rad/s
+const double g_half_move_speed = 0.5;
+const double g_half_spin_speed = 0.5;
+
 const double g_sample_dt = 0.01;
 const double g_dist_tol = 0.01; // 1cm
 //global variables, including a publisher object
@@ -75,8 +78,8 @@ geometry_msgs::Quaternion convertPlanarPhi2Quaternion(double phi) {
 void do_spin(double spin_ang) {
     ros::Rate loop_timer(1/g_sample_dt);
     double timer=0.0;
-    double final_time = fabs(spin_ang)/g_spin_speed;
-    g_twist_cmd.angular.z= sgn(spin_ang)*g_spin_speed;
+    double final_time = fabs(spin_ang)/g_half_spin_speed;
+    g_twist_cmd.angular.z= sgn(spin_ang)*g_half_spin_speed;
     while(timer<final_time) {
           g_twist_commander.publish(g_twist_cmd);
           timer+=g_sample_dt;
@@ -90,9 +93,9 @@ void do_move(double distance) { // always assumes robot is already oriented prop
                                 // but allow for negative distance to mean move backwards
     ros::Rate loop_timer(1/g_sample_dt);
     double timer=0.0;
-    double final_time = fabs(distance)/g_move_speed;
+    double final_time = fabs(distance)/g_half_move_speed;
     g_twist_cmd.angular.z = 0.0; //stop spinning
-    g_twist_cmd.linear.x = sgn(distance)*g_move_speed;
+    g_twist_cmd.linear.x = sgn(distance)*g_half_move_speed;
     while(timer<final_time) {
           g_twist_commander.publish(g_twist_cmd);
           timer+=g_sample_dt;
