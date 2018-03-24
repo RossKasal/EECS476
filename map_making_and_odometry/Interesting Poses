@@ -1,0 +1,63 @@
+Pose 1: Top Left Corner
+
+header: 
+  seq: 10319
+  stamp: 
+    secs: 1521915969
+    nsecs: 221600579
+  frame_id: map_static
+child_frame_id: robot0
+pose: 
+  pose: 
+    position: 
+      x: 0.895240506226
+      y: 13.8169179857
+      z: 0.0
+    orientation: 
+      x: 0.0
+      y: 0.0
+      z: -0.86097974121
+      w: 0.50863924861
+
+Pose 2: Top Right Corner
+
+header: 
+  seq: 12128
+  stamp: 
+    secs: 1521916150
+    nsecs: 122473783
+  frame_id: map_static
+child_frame_id: robot0
+pose: 
+  pose: 
+    position: 
+      x: 14.4097274898
+      y: 13.9493925356
+      z: 0.0
+    orientation: 
+      x: -0.0
+      y: 0.0
+      z: 0.941249385877
+      w: -0.337712294099
+
+Pose 3: Bottom Left Corner
+
+header: 
+  seq: 13837
+  stamp: 
+    secs: 1521916321
+    nsecs:  22365412
+  frame_id: map_static
+child_frame_id: robot0
+pose: 
+  pose: 
+    position: 
+      x: 1.03612116036
+      y: 1.06215201351
+      z: 0.0
+    orientation: 
+      x: 0.0
+      y: 0.0
+      z: -0.959132160458
+      w: 0.282958475356
+
