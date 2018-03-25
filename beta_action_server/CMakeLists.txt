@@ -7,8 +7,8 @@ find_package(Boost REQUIRED COMPONENTS system thread)
 catkin_simple()
 
 # Executables
-cs_add_executable(example_action_server src/example_action_server.cpp)
-cs_add_executable(example_action_client src/example_action_client.cpp)
+cs_add_executable(beta_action_server src/example_action_server.cpp)
+cs_add_executable(beta_action_client src/example_action_client.cpp)
 #cs_add_executable(example_countdown_server src/example_action_server_w_fdbk.cpp)
 #cs_add_executable(timer_client src/timer_client.cpp)
 cs_install()

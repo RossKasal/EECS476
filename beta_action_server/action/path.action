@@ -1,0 +1,12 @@
+#goal
+float64[] x_coordinate
+float64[] y_coordinate
+float64[] angle_value
+---
+#result
+bool result_completed
+---
+#feedback
+int32 steps_completed
+
+
