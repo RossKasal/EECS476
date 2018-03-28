@@ -166,23 +166,23 @@ int main(int argc, char** argv) {
 			ROS_INFO("Cancelling the goal");
 		}
 		ros::spinOnce();
-
+		if(cancel) { //spin in place
+			
+			ROS_INFO("Goal was cancelled");
+			
+			x_current = currentPose.pose.pose.position.x;
+	        y_current = currentPose.pose.pose.position.y;
+	        //orientation_current = currentPose.pose.pose.orientation;
+	       
+	        
+			cancel_goal.x_coordinate.push_back(x_current);
+			cancel_goal.y_coordinate.push_back(y_current);
+			//cancel_goal.angle_value.push_back(orientation_current);
+					
+			action_client.sendGoal(cancel_goal, &doneCb);
+		}
 	}
 	
-	if(cancel) { //spin in place
-		
-		ROS_INFO("Goal was cancelled");
-		
-		x_current = currentPose.pose.pose.position.x;
-        y_current = currentPose.pose.pose.position.y;
-        //orientation_current = currentPose.pose.pose.orientation;
-       
-        
-		cancel_goal.x_coordinate.push_back(x_current);
-		cancel_goal.y_coordinate.push_back(y_current);
-		//cancel_goal.angle_value.push_back(orientation_current);
-				
-		action_client.sendGoal(cancel_goal, &doneCb);
-	}
+	
 	return 0;
 }

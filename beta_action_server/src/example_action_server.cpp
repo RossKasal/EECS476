@@ -109,8 +109,8 @@ int main(int argc, char** argv) {
 #include <math.h>
 using namespace std;
 //some tunable constants, global
-const double g_move_speed = 1.0; // set forward speed to this value, e.g. 1m/s
-const double g_spin_speed = 1.0; // set yaw rate to this value, e.g. 1 rad/s
+const double g_move_speed = 0.5; // set forward speed to this value, e.g. 1m/s
+const double g_spin_speed = 0.5; // set yaw rate to this value, e.g. 1 rad/s
 const double g_sample_dt = 0.01;
 const double g_dist_tol = 0.01; // 1cm
 //global variables, including a publisher object
