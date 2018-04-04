@@ -15,8 +15,6 @@ void order_callback(const osrf_gear::Order::ConstPtr & order_msg) {
     }
 }
 
-
-
 int main(int argc, char ** argv) {
   ros::init(argc, argv, "box_inspector");
   ros::NodeHandle nh;

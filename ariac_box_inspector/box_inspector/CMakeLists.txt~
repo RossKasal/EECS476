@@ -38,8 +38,6 @@ cs_add_executable(order_sender_4parts src/order_sender_4parts.cpp)
 cs_add_executable(order_sender_6parts src/order_sender_6parts.cpp)
 cs_add_executable(order_sender_errs src/order_sender_errs.cpp)
 
-#cs_add_executable(box_inspector src/ box_inspector.cpp)
-
 #the following is required, if desire to link a node in this package with a library created in this same package
 # edit the arguments to reference the named node and named library within this package
 target_link_libraries(box_inspector_example_main box_inspector)

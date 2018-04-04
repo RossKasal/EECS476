@@ -1,6 +1,3 @@
-
-
-
 //given an image, compute all models w/rt box and return in a "Shipment" object
 bool BoxInspector::model_poses_wrt_box(osrf_gear::Shipment &shipment_status) {
     ROS_INFO("model_poses_wrt_box()");
@@ -82,13 +79,24 @@ bool BoxInspector::model_poses_wrt_box(osrf_gear::Shipment &shipment_status) {
 void BoxInspector::compute_shipment_poses_wrt_world(osrf_gear::Shipment shipment_wrt_box,
         geometry_msgs::PoseStamped box_pose_wrt_world,
         vector<osrf_gear::Model> &desired_models_wrt_world) {
-
+    Eigen::Affine3d affine = Eigen::Affine3d();
     ROS_WARN("WRITE THIS FNC! compute_shipment_poses_wrt_world()");
     //compute and fill in terms in desired_models_wrt_world
 
     desired_models_wrt_world.clear();
-    osrf_gear::Shipment product;
-    product.pose;
+    osrf_gear::Product product;
+
+    for (int i = 0; i < num_models; i++)
+    {
+        product.pose;
+
+    }
+
+
+
+    //desired_models_wrt_world.clear();
+    //osrf_gear::Shipment product;
+    //product.pose;
     //osrf_gear::product product;
 }
 
