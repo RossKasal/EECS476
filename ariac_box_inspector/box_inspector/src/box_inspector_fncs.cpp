@@ -60,7 +60,18 @@ bool BoxInspector::model_poses_wrt_box(osrf_gear::Shipment &shipment_status) {
             //string shipment_type
             //box_inspector/Product[] products
             //  string type
-            //  geometry_msgs/Pose pose    
+            //  geometry_msgs/Pose pose  
+
+            //PSEUDO CODE HERE
+            //find the pose of each model wrt to world
+            //for (num_models) {
+            // model.pose;  }
+            //find the pose of the box wrt the world
+            //using math we know  [Box (from b to w)]^inverse * Model (from m to w) 
+            //will find the model pose wrt to the box
+            //the pushback of the model happens below
+
+
             product.type = model.type;
             product.pose = part_pose_wrt_box;
             shipment_status.products.push_back(product);
@@ -83,21 +94,22 @@ void BoxInspector::compute_shipment_poses_wrt_world(osrf_gear::Shipment shipment
     ROS_WARN("WRITE THIS FNC! compute_shipment_poses_wrt_world()");
     //compute and fill in terms in desired_models_wrt_world
 
+
+
+    //PSUEDO CODE HERE
+    //clear current models
     desired_models_wrt_world.clear();
+    //create the products in the shipment
     osrf_gear::Product product;
-
-    for (int i = 0; i < num_models; i++)
-    {
-        product.pose;
-
-    }
-
-
-
-    //desired_models_wrt_world.clear();
-    //osrf_gear::Shipment product;
-    //product.pose;
-    //osrf_gear::product product;
+    //take the product from the shipment
+    //for(every product) {
+    // product.pose; }
+    //transform this pose to eigen affine 3d
+    //transformPoseToEigenAffine3d
+    //find the pose wrt the box
+    //we already know the box pose wrt to world is the same for all prodicts
+    //transform product from box to world
+    //transform from Eigen back to pose
+    //pushback the model poses
+    // pushback(models)
 }
-
-

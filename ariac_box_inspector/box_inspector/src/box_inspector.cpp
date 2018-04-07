@@ -64,6 +64,27 @@ void BoxInspector::get_new_snapshot_from_box_cam() {
   misplaced_models_desired_coords_wrt_world.clear();
   missing_models_wrt_world.clear();
 
+
+  //PSUEDO CODE HERE
+  //we can already get all of the poses that we need for all models
+  //for (num_parts_seen) {
+  // check if the pose is within tolerance }
+  //for (parts within tolerance) {
+  // add these parts to a list that belong in the shipment }
+  //for (num_parts_seen - number of parts within tolerance) {
+  //readjust parts to within tolerance 
+  //add these parts to a list }
+  //check these two lists compared to what should be inside the box
+  //for (every missing part) {
+  //add the part to the box in the correct pose from a list created of the missing parts }
+  //for (every extra part) {
+  //go through the list of extra parts and remove the extras and add to a list 
+
+  //push back all of this information
+
+
+
+
   //THIS  IS WRONG...but an example of how to get models from image and sort into category vectors
   for (int i=0;i<num_parts_seen;i++) {
      orphan_models_wrt_world.push_back(box_inspector_image_.models[i]);
