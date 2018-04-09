@@ -59,12 +59,12 @@ void laserCallback(const sensor_msgs::LaserScan& laser_scan) {
 	ping_dist_in_side6_ = laser_scan.ranges[ping_index_+30];
 	
 	ROS_INFO("ping dist in front = %f",ping_dist_in_front_);
-	ROS_INFO("ping dist in side1 = %f",ping_dist_in_side1_);
-	ROS_INFO("ping dist in side2 = %f",ping_dist_in_side2_);
-	ROS_INFO("ping dist in side3 = %f",ping_dist_in_side3_);
-	ROS_INFO("ping dist in side4 = %f",ping_dist_in_side4_);
-	ROS_INFO("ping dist in side5 = %f",ping_dist_in_side5_);
-	ROS_INFO("ping dist in side6 = %f",ping_dist_in_side6_);
+	ROS_INFO("ping dist in side -90d = %f",ping_dist_in_side1_);
+	ROS_INFO("ping dist in side +90d = %f",ping_dist_in_side2_);
+	ROS_INFO("ping dist in side -45d = %f",ping_dist_in_side3_);
+	ROS_INFO("ping dist in side +45d = %f",ping_dist_in_side4_);
+	ROS_INFO("ping dist in side -30d = %f",ping_dist_in_side5_);
+	ROS_INFO("ping dist in side +30d = %f",ping_dist_in_side6_);
 	if (ping_dist_in_front_<MIN_SAFE_DISTANCE || ping_dist_in_side1_ < MIN_SAFE_DISTANCE || ping_dist_in_side2_ < MIN_SAFE_DISTANCE || ping_dist_in_side3_ < MIN_SAFE_DISTANCE || ping_dist_in_side4_ < MIN_SAFE_DISTANCE || ping_dist_in_side5_ < MIN_SAFE_DISTANCE || ping_dist_in_side6_ < MIN_SAFE_DISTANCE) {
 		ROS_WARN("N O P E");
 		laser_alarm_=true;
