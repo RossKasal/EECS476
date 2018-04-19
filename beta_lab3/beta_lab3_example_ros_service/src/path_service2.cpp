@@ -8,7 +8,7 @@
 // i.e., equivalent to expressing subgoals in odom frame
 
 #include <ros/ros.h>
-#include <example_ros_service/PathSrv.h>
+#include <beta_lab3_example_ros_service/PathSrv.h>
 #include <nav_msgs/Path.h>
 #include <geometry_msgs/Pose.h>
 #include <geometry_msgs/Twist.h>
@@ -143,7 +143,7 @@ void get_yaw_and_dist(geometry_msgs::Pose current_pose, geometry_msgs::Pose goal
 }
 
 
-bool callback(example_ros_service::PathSrvRequest& request, example_ros_service::PathSrvResponse& response)
+bool callback(beta_lab3_example_ros_service::PathSrvRequest& request, beta_lab3_example_ros_service::PathSrvResponse& response)
 {
     ROS_INFO("callback activated");
     double yaw_desired, yaw_current, travel_distance, spin_angle;

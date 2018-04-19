@@ -42,11 +42,11 @@ void BoxInspector::get_new_snapshot_from_box_cam() {
 // missing_models_wrt_world:  vector of models that are requested in the shipment, but not yet present in the box
 // orphan_models_wrt_world: vector of models that are seen in the box, but DO NOT belong in the box
   void BoxInspector::update_inspection(vector<osrf_gear::Model> desired_models_wrt_world,
-       vector<osrf_gear::Model> &satisfied_models_wrt_world,
-       vector<osrf_gear::Model> &misplaced_models_actual_coords_wrt_world,
-       vector<osrf_gear::Model> &misplaced_models_desired_coords_wrt_world,
-       vector<osrf_gear::Model> &missing_models_wrt_world,
-       vector<osrf_gear::Model> &orphan_models_wrt_world) {
+       vector<ps6_osrf_gear::Model> &satisfied_models_wrt_world,
+       vector<ps6_osrf_gear::Model> &misplaced_models_actual_coords_wrt_world,
+       vector<ps6_osrf_gear::Model> &misplaced_models_desired_coords_wrt_world,
+       vector<ps6_osrf_gear::Model> &missing_models_wrt_world,
+       vector<ps6_osrf_gear::Model> &orphan_models_wrt_world) {
   //WRITE ME!!!
   ROS_WARN("NEED TO WRITE update_inspection() ");
   got_new_snapshot_=false;

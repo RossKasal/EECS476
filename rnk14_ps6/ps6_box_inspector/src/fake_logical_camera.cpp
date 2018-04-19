@@ -3,7 +3,7 @@
 
 #include <ros/ros.h>
 
-#include <osrf_gear/LogicalCameraImage.h>
+#include <ps6_osrf_gear/LogicalCameraImage.h>
 
 void fill_image_msg(osrf_gear::LogicalCameraImage &fake_camera_image) {
   //camera frame w/rt world:

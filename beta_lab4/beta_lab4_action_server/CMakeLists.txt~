@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(beta_action_server)
+project(beta_lab4_action_server)
 
 find_package(catkin_simple REQUIRED)
 # example boost usage

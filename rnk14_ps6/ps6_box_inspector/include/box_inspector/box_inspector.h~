@@ -8,7 +8,7 @@
 //#include <ps6_osrf_gear/LogicalCameraImage.h>
 //#include <ps6_osrf_gear/Order.h>
 //#include <ps6_osrf_gear/Product.h>
-//#include <xform_utils/xform_utils.h>
+#include <xform_utils/xform_utils.h>
 using namespace std;
 
 const int NUM_PART_TYPES=5;

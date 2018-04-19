@@ -2,11 +2,11 @@
 #define PUB_DES_STATE_H_
 
 #include <queue>
-#include <traj_builder/traj_builder.h> //has almost all the headers we need
+#include <beta_lab5_traj_builder/traj_builder.h> //has almost all the headers we need
 #include <std_msgs/Float64.h>
 #include <std_msgs/Bool.h>
 #include <std_srvs/Trigger.h>
-#include <mobot_pub_des_state/path.h>
+#include <beta_lab5_mobot_pub_des_state/path.h>
 #include <std_msgs/Float64.h>
 
 //constants and parameters:

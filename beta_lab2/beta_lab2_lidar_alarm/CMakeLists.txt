@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(beta_lidar_alarm)
+project(beta_lab2_lidar_alarm)
 
 find_package(catkin_simple REQUIRED)
 

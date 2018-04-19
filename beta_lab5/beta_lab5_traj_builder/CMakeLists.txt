@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(traj_builder)
+project(beta_lab5_traj_builder)
 
 find_package(catkin_simple REQUIRED)
 

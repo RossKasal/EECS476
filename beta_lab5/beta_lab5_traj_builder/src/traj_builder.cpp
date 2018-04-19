@@ -118,8 +118,7 @@ void TrajBuilder::build_trapezoidal_spin_traj(geometry_msgs::PoseStamped start_p
     double x_start = start_pose.pose.position.x;
     double y_start = start_pose.pose.position.y;
     double x_end = end_pose.pose.position.x;
-    double y_end = end_pose.pose.position.y;/lidar_alarm
-/lidar_dist
+    double y_end = end_pose.pose.position.y;
     double dx = x_end - x_start;
     double dy = y_end - y_start;
     double psi_start = convertPlanarQuat2Psi(start_pose.pose.orientation);
@@ -172,8 +171,6 @@ void TrajBuilder::build_trapezoidal_spin_traj(geometry_msgs::PoseStamped start_p
     des_state.twist.twist = halt_twist_; // insist on full stop
     vec_of_states.push_back(des_state);
 }
-/lidar_alarm
-/lidar_dist
 //upper-level function to construct a spin-in-place trajectory
 // this function decides if triangular or trapezoidal angular-velocity
 // profile is needed
@@ -217,7 +214,7 @@ void TrajBuilder::build_travel_traj(geometry_msgs::PoseStamped start_pose,
     double ramp_up_dist = 0.5 * speed_max_ * speed_max_ / alpha_max_;
     ROS_INFO("trip len = %f", trip_len);
     if (trip_len < 2.0 * ramp_up_dist) { //length is too short for trapezoid
-        build_triangular_travel_traj(start_pose, end_pose, vec_ofstd_msgs/bool topic ESTOP _states);
+        build_triangular_travel_traj(start_pose, end_pose, vec_of_states);
     } else {
         build_trapezoidal_travel_traj(start_pose, end_pose, vec_of_states);
     }
@@ -239,7 +236,7 @@ void TrajBuilder::build_trapezoidal_travel_traj(geometry_msgs::PoseStamped start
     double trip_len = sqrt(dx * dx + dy * dy);
     double t_ramp = speed_max_ / accel_max_;
     double ramp_up_dist = 0.5 * accel_max_ * t_ramp*t_ramp;
-    double cruise_distance = trip_len - 2.0 * ramp_up_dist; //disstd_msgs/bool topic ESTOP tance to travel at v_max 
+    double cruise_distance = trip_len - 2.0 * ramp_up_dist; //distance to travel at v_max 
     ROS_INFO("t_ramp =%f",t_ramp);
     ROS_INFO("ramp-up dist = %f",ramp_up_dist);
     ROS_INFO("cruise distance = %f",cruise_distance);
@@ -384,8 +381,7 @@ void TrajBuilder::build_triangular_spin_traj(geometry_msgs::PoseStamped start_po
         t += dt_;
         omega_des = accel*t;
         des_state.twist.twist.angular.z = omega_des; //update rotation rate
-        //update orientation/lidar_alarm
-/lidar_dist
+        //update orientation
         psi_des = psi_start + 0.5 * accel * t*t;
         des_state.pose.pose.orientation = convertPlanarPsi2Quaternion(psi_des);
         vec_of_states.push_back(des_state);
@@ -448,8 +444,7 @@ void TrajBuilder::build_point_and_go_traj(geometry_msgs::PoseStamped start_pose,
         std::vector<nav_msgs::Odometry> &vec_of_states) {
     ROS_INFO("building point-and-go trajectory");
     nav_msgs::Odometry bridge_state;
-    geometry_msgs::PoseStamped bridge_pose; //lidar_alarm
-/lidar_dist/bridge end of prev traj to start of new traj
+    geometry_msgs::PoseStamped bridge_pose; //end of prev traj to start of new traj
     vec_of_states.clear(); //get ready to build a new trajectory of desired states
     ROS_INFO("building rotational trajectory");
     double x_start = start_pose.pose.position.x;

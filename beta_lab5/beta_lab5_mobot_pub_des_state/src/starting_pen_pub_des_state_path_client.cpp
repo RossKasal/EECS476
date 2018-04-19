@@ -4,7 +4,7 @@
 // this version is useful for having mobot exit the starting pen
 
 #include <ros/ros.h>
-#include <mobot_pub_des_state/path.h>
+#include <beta_lab5_mobot_pub_des_state/path.h>
 #include <iostream>
 #include <string>
 #include <nav_msgs/Path.h>

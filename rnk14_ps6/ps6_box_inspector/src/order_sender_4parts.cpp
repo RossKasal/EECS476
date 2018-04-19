@@ -2,8 +2,8 @@
 
 #include <ros/ros.h>
 
-#include <osrf_gear/LogicalCameraImage.h>
-#include <osrf_gear/Order.h>
+#include <ps6_osrf_gear/LogicalCameraImage.h>
+#include <ps6_osrf_gear/Order.h>
 
 //order contains shipments
 //shipment contains products

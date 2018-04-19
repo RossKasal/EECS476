@@ -1,5 +1,5 @@
 //main pgm that illustrates use of box-inspector library
-#include<box_inspector/box_inspector.h>
+#include<ps6_box_inspector/box_inspector.h>
 
 osrf_gear::Shipment g_shipment_wrt_box;
 bool g_order_received = false;

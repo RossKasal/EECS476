@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(osrf_gear)
+project(ps6_osrf_gear)
 
 find_package(catkin_simple REQUIRED)
 

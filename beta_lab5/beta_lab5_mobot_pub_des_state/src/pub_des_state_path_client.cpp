@@ -2,7 +2,7 @@
 // illustrates how to send a request to the append_path_queue_service service
 
 #include <ros/ros.h>
-#include <mobot_pub_des_state/path.h>
+#include <beta__lab5_mobot_pub_des_state/path.h>
 #include <iostream>
 #include <string>
 #include <nav_msgs/Path.h>

@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(my_stdr_control)
+project(ps1_my_stdr_control)
 
 find_package(catkin_simple REQUIRED)
 
