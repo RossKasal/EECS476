@@ -127,6 +127,5 @@ int main(int argc, char **argv) {
     }
     
     ROS_INFO("done!!");
-    client.call(path_srv);
     return 0;
 }
